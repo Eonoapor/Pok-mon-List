@@ -1,1 +1,7 @@
-
+body {
+  background-color: #b7b5c2;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16.6px; /* Setting the size of font */
+  line-height: 1.6; /* Setting the line between texts */
+}
