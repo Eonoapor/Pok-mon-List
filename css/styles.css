@@ -1,7 +1,11 @@
-body {
-  background-color: #b7b5c2;
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  font-size: 16.6px; /* Setting the size of font */
-  line-height: 1.6; /* Setting the line between texts */
+.pokemonList  {
+  list-style-type: none;
+}
+
+.pokemonclass {
+  font-size: 20px;
+  border: none;
+  background-color: #32b6cd;
+  border-radius: 3px;
+  margin: 10px;
 }
