@@ -18,12 +18,7 @@ var repository = [
       weight:6.5
   }
   ]
-repository.forEach (function(repository) {
-    document.write(repository.name + "(" )
-    document.write("Height:" + repository.height +",")
-    document.write("Type:" + repository.type + ",")
-    document.write("Weight:" + repository.weight + ")" + "<br><br>")
-    if (repository ===1.7) {
-      document.write("Wow, that's big!")
-    }
-});
+  for (var i = 0; i < repository.length; i++){
+    document.write("Name:" + repository[i].name + "(" + "Height:" + repository[i].height + ","+ "Type:" + repository[i].type + ")" + "," + "Weight:" + repository[i].weight + "</p>");
+
+  }
