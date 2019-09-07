@@ -1,4 +1,3 @@
-
 var repository = [
   {
       name: 'Bulbasaur',       //The first Pokemon
@@ -18,10 +17,8 @@ var repository = [
       type: ['fighting'],
       weight:6.5
   }
-  ]
-  for (var i = 0; i < repository.length; i++){
-    document.write("Name:" + repository[i].name + "(" + "Height:" + repository[i].height + ","+ "Type:" + repository[i].type + ")" + "," + "Weight:" + repository[i].weight + "</p>");
-    if(i == 0){
-        document.write("<p>Wow, that's big!.</p>")
-      }
-    }
+  ];
+repository.forEach((array)=>{
+ document.write('Name: '+ array.name +'<br>','Height: ' +array.height+'<br>',
+ 'Type: ' + array.type +'<br>', 'Weight: '+array.weight+'<br>'+'<br>' ) 
+})
