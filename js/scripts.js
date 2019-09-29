@@ -1,39 +1,54 @@
-var pokemonRepository = (function() {       // pokemon array goes in IIFE
-  var repository = [
-  {
+(function (){pokemonRepository = (function ()
+    {
+    var repository = [
+    {
       name: 'Bulbasaur',       //The first Pokemon
       height: 0.7,
-      type:['grass', 'poison'],
-      weight:6.9
+      type: ['grass', 'poison'],
+      weight: 6.9
   },
   {
-      name:'Electrode',       //The second Pokemon
-      height:1.7 ,
-      type:['electric'],
-      weight:7.6
+      name: 'Electrode',       //The second Pokemon
+      height: 1.7 ,
+      type: ['electric'],
+      weight: 7.6
   },
   {
-      name:'Machoke',         //The third Pokemon
-      height:0.5,
+      name: 'Machoke',         //The third Pokemon
+      height: 0.5,
       type: ['fighting'],
-      weight:6.5
+      weight: 6.5
   }
-  ];
+    ]
 
-  function add(pokemon) {
-    repository.push (pokemon);
-  }
 
-  function getAll() {
-    return repository;
-  }
+    function add(pokemon) {
+      repository.push(pokemon);
+    }
 
-  return {
-    add: add,
-    getAll: getAll
-  };
-}) ();
+    function getAll() {
+      return repository;
+    }
 
-pokemonRepository.add ({ name: 'Charizard', height:2.10, type: ["Fire", "Flying"], weight:9.5});
-document.write('Name: '+ pokemonRepository.name +'<br>','Height: ' +pokemonRepository.height+'<br>',
- 'Type: ' + pokemonRepository.type +'<br>', 'Weight: '+pokemonRepository.weight+'<br>'+'<br>');
+    return {
+      add: add,
+      getAll: getAll
+    }
+    })();
+
+    var pokemon = { name: "Charizard",
+    height: 7.1,
+    type: [ "Poison" ],weight:4.3};
+    var getAll= pokemonRepository.getAll();
+
+    pokemonRepository.add(pokemon)
+
+    getAll.forEach(function(array){
+
+            document.write('Name: '+ array.name +'<br>','Height: ' +array.height+'<br>',
+ 'Type: ' + array.type +'<br>', 'Weight: '+array.weight+'<br>'+'<br>' );
+            }
+             );
+
+    pokemonRepository();
+    })();
