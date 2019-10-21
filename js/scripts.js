@@ -1,4 +1,7 @@
-(function (){pokemonRepository = (function ()
+
+var $pokemonList = document.querySelector('ul');
+
+var pokemonRepository = (function ()
     {
     var repository = [
     {
@@ -19,35 +22,47 @@
       type: ['fighting'],
       weight: 6.5
   }
-    ]
+];
 
+function add(pokemon){
 
-    function add(pokemon) {
-      repository.push(pokemon);
+    if (typeof pokemon !== 'object'){
+      return 'Invalid entry'
+    }else{
+    repository.push(pokemon);
     }
+  }
 
-    function getAll() {
-      return repository;
-    }
+  function getAll(){
+    return repository;
+  }
 
-    return {
-      add: add,
-      getAll: getAll
-    }
-    })();
+  function addListItem(pokemon){
+    var listItem = document.createElement('li');
+    var button = document.createElement('button');
 
-    var pokemon = { name: "Charizard",
-    height: 7.1,
-    type: [ "Poison" ],weight:4.3};
-    var getAll= pokemonRepository.getAll();
+    button.innerText = pokemon.name;
+    button.classList.add('new-style');
+    listItem.appendChild(button);
+    $pokemonList.appendChild(listItem)
+    button.addEventListener('click', function (){
+      showDetails(pokemon)
+    })
+  }
 
-    pokemonRepository.add(pokemon)
+  function showDetails(pokemon){
+    console.log(pokemon)
+  }
 
-    getAll.forEach(function(array){
+  return{
+    add: add,
+    getAll: getAll,
+    addListItem: addListItem,
+    showDetails: showDetails
+  };
+})();
 
-            document.write('Name: '+ array.name +'<br>','Height: ' +array.height+'<br>',
- 'Type: ' + array.type +'<br>', 'Weight: '+array.weight+'<br>'+'<br>' );
-            }
-             );
 
-    })();
+pokemonRepository.getAll().forEach(function(currentItem){
+  pokemonRepository.addListItem(currentItem);
+})
