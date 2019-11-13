@@ -55,7 +55,6 @@ function add(pokemon){
   function loadDetails(pokemon){
     var url = pokemon.detailsUrl;
     return fetch(url).then(function(response){
-      return response.json();
     }).then(function(details){ //Assigning some details from response to object in repository
       pokemon.imageUrl = details.sprites.front_default;
       pokemon.height = details.height;
