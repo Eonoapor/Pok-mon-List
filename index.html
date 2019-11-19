@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html id=background>
+<html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokémon List App</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Shojumaru" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="dist/styles.dist.css">
+    <title>Pokedex Application</title>
   </head>
   <body>
     <header class='pageHeader'>
       <h1> Pokémon List App </h1>
+    <header class='heading'>
+      <h1>Pokémon Catalogue Lists</h1>
+      <p>App that provides information about several Pokémon species</p>
+      <br>
     </header>
     <div class="wrapper">
 
@@ -19,5 +29,12 @@
     <script type="text/javascript" src="js/promise-polyfill.js"> </script>
     <script type="text/javascript" src="js/fetch-polyfill.js"> </script>
     <script type="text/javascript" src="js/scripts.js"> </script>
+    <div class='wrapper'>
+      <ul class='pokemon-list'></ul>
+    </div>
+    <div id='modal-container'></div>
+    <script src="js/promise-polyfill.js"></script>
+    <script src="js/fetch.umd.js"></script>
+    <script src="dist/scripts.dist.js"></script>
   </body>
 </html>
