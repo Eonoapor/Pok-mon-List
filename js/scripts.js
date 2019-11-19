@@ -1,18 +1,10 @@
 var pokemonRepository = (function () {
  var repository = [];
 
-var $pokemonList = document.querySelector('ul');
  var $pokemonList = document.querySelector('ul');
  var $modalContainer = document.querySelector('#modal-container');
  var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-var pokemonRepository = (function(){
-  var repository = [];
-  var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-  //Array removed and replaced with external data source
-
-function add(pokemon){
-  function add(pokemon){
 // for adding new Pokemon to var repository
  function add(pokemon){
 
@@ -23,25 +15,10 @@ function add(pokemon){
     }
   }
 
-  function getAll(){
-    return repository;
-  }
  function catchAll() { // Function for returning Pokemon object array
    return repository;
  }
 
-  function addListItem(pokemon){
-    var listItem = document.createElement('li');
-    var button = document.createElement('button');
-
-    button.innerText = pokemon.name;
-    button.classList.add('new-style');
-    listItem.appendChild(button);
-    $pokemonList.appendChild(listItem)
-    button.addEventListener('click', function (){
-      showDetails(pokemon)
-    })
-  }
  function search(searchName) {  // Function for searching repository
    repository.filter(function(pokemon) {
      if (pokemon.name === searchName) {
@@ -50,50 +27,10 @@ function add(pokemon){
   });
  }
 
-  function showDetails(pokemon){
-    console.log(pokemon)
-    pokemonRepository.loadDetails(pokemon).then(function(){//to get Pokémon details using URL from Pokémon object in parameter
-    });
-  function loadList(){ //Fuction as a return key
-    return fetch(apiUrl).then(function(response){ //fetch for complete list of pokemon
-      return response.json();
-    }).then(function(json){ //returning a JSON response
-      json.results.forEach(function(pokemon){
-        var pokemon = {
-          name: pokemon.name, //key
-          detailsUrl: pokemon.url //key
-        };
-        add(pokemon); // for adding Pokémon from results to repository variable
-      });
-    }).catch(function(error){
-      console.error(error);
-    })
-  }
-  function loadDetails(pokemon){
-    var url = pokemon.detailsUrl;
-    return fetch(url).then(function(response){
-    }).then(function(details){ //Assigning some details from response to object in repository
-      pokemon.imageUrl = details.sprites.front_default;
-      pokemon.height = details.height;
-      pokemon.types = Object.keys(details.types);
-    }).catch(function(error){
-      console.error(error);
-    })
-  }
  function addListItem(pokemon) { // Function for adding a list for every Pokemon
    var listItem = document.createElement('li');
    var button = document.createElement('button');
 
-  return{
-    add: add,
-    getAll: getAll,
-    addListItem: addListItem,
-    showDetails: showDetails
-    //showDetails: showDetails,
-    loadList: loadList,
-    loadDetails: loadDetails
-  };
-})();
    button.innerText = pokemon.name; // For adding name to text within button
 
    button.classList.add('pokemon-name'); // For Adding CSS class to button
@@ -139,13 +76,10 @@ function add(pokemon){
      return response.json();
    }).then(function (details) {
 
-pokemonRepository.loadList().then(function() { //Calling loadList function
      // Inputing Pokemon information
      item.imageUrl = details.sprites.front_default;
      item.height = details.height;
 
-pokemonRepository.getAll().forEach(function(currentItem){
-  pokemonRepository.addListItem(currentItem);
      if (details.types.length == 2 ) {
 			item.types = [details.types[0].type.name, details.types[1].type.name];
 		} else {
@@ -211,8 +145,6 @@ $modalContainer.addEventListener('click', (e) => {
     hideModal();
   }
 })
-  pokemonRepository.getAll().forEach(function(pokemon){
-    pokemonRepository.addListItem(pokemon); //calling the addListItem function
 
  return {
    add: add,
